@@ -1,0 +1,49 @@
+{
+  "camera": {
+    "device_path": "/dev/video0",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "buffer_count": 4
+  },
+  "encoder": {
+    "bitrate": 2000000,
+    "preset": "ultrafast",
+    "profile": "baseline",
+    "use_hardware": true
+  },
+  "streamer": {
+    "target_ip": "192.168.1.100",
+    "target_port": 5000,
+    "mtu": 1400,
+    "enable_fragmentation": true
+  },
+  "command_receiver": {
+    "listen_port": 5001,
+    "bind_address": "0.0.0.0",
+    "timeout_ms": 100,
+    "enable_heartbeat": true,
+    "heartbeat_timeout_ms": 5000
+  },
+  "servo_controller": {
+    "i2c_device": "/dev/i2c-1",
+    "controller_address": 64,
+    "pwm_frequency": 50,
+    "min_pulse_width": 500,
+    "max_pulse_width": 2500,
+    "center_pulse_width": 1500,
+    "enable_smooth_movement": true,
+    "movement_speed": 10
+  },
+  "application": {
+    "log_level": "INFO",
+    "log_file": "/var/log/linux_cam.log",
+    "enable_performance_monitoring": true,
+    "stats_update_interval_ms": 1000,
+    "enable_rt_scheduling": true,
+    "rt_priority": 50,
+    "enable_cpu_affinity": true,
+    "cpu_affinity_mask": 2,
+    "enable_memory_locking": true
+  }
+}

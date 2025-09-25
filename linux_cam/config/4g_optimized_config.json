@@ -1,0 +1,60 @@
+{
+  "camera": {
+    "device_path": "/dev/video0",
+    "width": 640,
+    "height": 480,
+    "fps": 15,
+    "pixel_format": "V4L2_PIX_FMT_NV12",
+    "buffer_count": 2
+  },
+  "encoder": {
+    "width": 640,
+    "height": 480,
+    "fps": 15,
+    "bitrate": 150000,
+    "gop_size": 1000,
+    "max_b_frames": 0,
+    "use_hardware": true,
+    "preset": "ultrafast",
+    "profile": "baseline",
+    "force_idr_on_first": true,
+    "no_scenecut": true,
+    "constant_quality": false
+  },
+  "streamer": {
+    "target_ip": "192.168.1.100",
+    "target_port": 5000,
+    "mtu": 1200,
+    "send_buffer_size": 32768,
+    "enable_fragmentation": true,
+    "max_queue_size": 2
+  },
+  "command_receiver": {
+    "listen_port": 5001,
+    "bind_address": "0.0.0.0",
+    "timeout_ms": 50,
+    "enable_heartbeat": true,
+    "heartbeat_timeout_ms": 2000
+  },
+  "servo_controller": {
+    "i2c_device": "/dev/i2c-1",
+    "controller_address": 64,
+    "pwm_frequency": 50,
+    "min_pulse_width": 500,
+    "max_pulse_width": 2500,
+    "center_pulse_width": 1500,
+    "enable_smooth_movement": false,
+    "movement_speed": 255
+  },
+  "application": {
+    "log_level": "INFO",
+    "log_file": "/var/log/linux_cam.log",
+    "enable_performance_monitoring": true,
+    "stats_update_interval_ms": 5000,
+    "enable_rt_scheduling": true,
+    "rt_priority": 80,
+    "enable_cpu_affinity": true,
+    "cpu_affinity_mask": 6,
+    "enable_memory_locking": true
+  }
+}

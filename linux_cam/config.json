@@ -1,0 +1,32 @@
+{
+  "camera": {
+    "device_path": "/dev/video1",
+    "width": 320,
+    "height": 240,
+    "fps": 30,
+    "pixel_format": "V4L2_PIX_FMT_YUYV",
+    "buffer_count": 2
+  },
+  "encoder": {
+    "width": 320,
+    "height": 240,
+    "fps": 30,
+    "bitrate": 500000
+  },
+  "streamer": {
+    "target_ip": "127.0.0.1",
+    "target_port": 5000,
+    "mtu": 1200,
+    "send_buffer_size": 32768,
+  },
+  "servo_controller": {
+    "i2c_device": "/dev/i2c-1",
+    "controller_address": 64,
+    "pwm_frequency": 50,
+    "min_pulse_width": 500,
+    "max_pulse_width": 2500,
+    "center_pulse_width": 1500,
+    "enable_smooth_movement": false,
+    "movement_speed": 255
+  }
+}
