@@ -1,6 +1,6 @@
 {
   "camera": {
-    "device_path": "/dev/video1",
+    "device_path": "/dev/video0",
     "width": 320,
     "height": 240,
     "fps": 30,
@@ -17,7 +17,7 @@
     "target_ip": "127.0.0.1",
     "target_port": 5000,
     "mtu": 1200,
-    "send_buffer_size": 32768,
+    "send_buffer_size": 32768
   },
   "servo_controller": {
     "i2c_device": "/dev/i2c-1",

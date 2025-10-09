@@ -1,0 +1,7 @@
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/linux_viewer.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/edit_cache.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/rebuild_cache.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/list_install_components.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/install.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/install/local.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_viewer/build/CMakeFiles/install/strip.dir

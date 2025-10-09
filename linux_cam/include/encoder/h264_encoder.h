@@ -31,7 +31,7 @@ public:
         uint32_t height = 480;
         uint32_t fps = 15;
         uint32_t bitrate = 200000;      // 200 kbps for 4G efficiency
-        uint32_t gop_size = 1000;       // Very large GOP - only I-frame at start
+        uint32_t gop_size = 15;       // Very large GOP - only I-frame at start
         uint32_t max_b_frames = 0;      // No B-frames, only I and P
         bool use_hardware = true;
         std::string preset = "ultrafast";

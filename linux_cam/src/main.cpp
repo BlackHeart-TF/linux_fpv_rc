@@ -33,9 +33,14 @@ public:
             }
         }
         
-        if (!config_to_load.empty() && !config_manager.load_from_file(config_to_load)) {
-            std::cerr << "Failed to load config file: " << config_to_load << std::endl;
-            std::cerr << "Using default configuration." << std::endl;
+        if (!config_to_load.empty()) {
+            if (!config_manager.load_from_file(config_to_load)) {
+                std::cerr << "Failed to load config file: " << config_to_load << std::endl;
+                return false;
+            }
+        } else {
+            std::cerr << "No config file specified and no default config found!" << std::endl;
+            return false;
         }
         
         const auto& config = config_manager.get_config();

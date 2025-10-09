@@ -34,8 +34,8 @@ bool RuntimeConfig::load_from_file(const std::string& config_file) {
 }
 
 bool RuntimeConfig::load_from_json(const std::string& json_content) {
-    // Simple JSON parsing - in production, use a proper JSON library
-    config_ = create_default_config();
+    // Initialize with defaults first
+    initialize_defaults();
     
     // Parse basic string values
     std::regex string_pattern("\"(\\w+)\"\\s*:\\s*\"([^\"]*)\"");
@@ -170,90 +170,11 @@ std::string RuntimeConfig::get_validation_errors() const {
     return last_validation_error_;
 }
 
-ApplicationConfig RuntimeConfig::create_default_config() {
-    ApplicationConfig config;
-    
-    // Camera defaults
-    config.camera.device_path = "/dev/video0";
-    config.camera.width = 1920;
-    config.camera.height = 1080;
-    config.camera.fps = 30;
-    config.camera.buffer_count = 4;
-    
-    // Encoder defaults
-    config.encoder.width = 1920;
-    config.encoder.height = 1080;
-    config.encoder.fps = 30;
-    config.encoder.bitrate = 2000000; // 2 Mbps
-    config.encoder.gop_size = 30;
-    config.encoder.use_hardware = true;
-    config.encoder.preset = "ultrafast";
-    config.encoder.profile = "baseline";
-    
-    // Streamer defaults
-    config.streamer.target_ip = "192.168.1.100";
-    config.streamer.target_port = 5000;
-    config.streamer.mtu = 1400;
-    config.streamer.enable_fragmentation = true;
-    
-    // Command receiver defaults
-    config.command_receiver.listen_port = 5001;
-    config.command_receiver.bind_address = "0.0.0.0";
-    config.command_receiver.timeout_ms = 100;
-    config.command_receiver.enable_heartbeat = true;
-    config.command_receiver.heartbeat_timeout_ms = 5000;
-    
-    // Servo controller defaults
-    config.servo_controller.i2c_device = "/dev/i2c-1";
-    config.servo_controller.controller_address = 0x40;
-    config.servo_controller.pwm_frequency = 50;
-    config.servo_controller.enable_smooth_movement = true;
-    
-    // Application defaults
-    config.enable_logging = true;
-    config.log_level = "INFO";
-    config.log_file = "/var/log/linux_cam.log";
-    config.enable_performance_monitoring = true;
-    config.stats_update_interval_ms = 1000;
-    
-    // RT defaults
-    config.enable_rt_scheduling = true;
-    config.rt_priority = 50;
-    config.enable_cpu_affinity = true;
-    config.cpu_affinity_mask = 0x02; // CPU 1
-    config.enable_memory_locking = true;
-    
-    return config;
+void RuntimeConfig::initialize_defaults() {
+    // Just use the struct defaults - no overrides
+    config_ = ApplicationConfig{};
 }
 
-ApplicationConfig RuntimeConfig::create_high_performance_config() {
-    auto config = create_default_config();
-    
-    // High performance settings
-    config.encoder.preset = "fast";
-    config.encoder.bitrate = 5000000; // 5 Mbps
-    config.camera.fps = 60;
-    config.encoder.fps = 60;
-    config.rt_priority = 80;
-    config.enable_cpu_affinity = true;
-    config.cpu_affinity_mask = 0x0E; // CPUs 1,2,3
-    
-    return config;
-}
-
-ApplicationConfig RuntimeConfig::create_low_latency_config() {
-    auto config = create_default_config();
-    
-    // Low latency settings
-    config.encoder.preset = "ultrafast";
-    config.encoder.gop_size = 15; // Smaller GOP for lower latency
-    config.encoder.bitrate = 1000000; // 1 Mbps for lower latency
-    config.camera.buffer_count = 2; // Minimal buffering
-    config.streamer.mtu = 1200; // Smaller MTU for lower latency
-    config.rt_priority = 90;
-    
-    return config;
-}
 
 std::string RuntimeConfig::serialize_to_json() const {
     std::ostringstream json;

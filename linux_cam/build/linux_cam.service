@@ -1,0 +1,36 @@
+[Unit]
+Description=Linux Camera RT Service
+Documentation=man:linux_cam(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/linux_cam --config /etc/linux_cam/camera_config.json
+Restart=always
+RestartSec=5
+User=root
+Group=root
+
+# RT kernel optimizations
+Nice=-10
+IOSchedulingClass=1
+IOSchedulingPriority=4
+
+# Security settings (adjust as needed)
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log /tmp
+
+# Resource limits
+LimitMEMLOCK=infinity
+LimitRTPRIO=50
+
+# Environment
+Environment=LD_LIBRARY_PATH=/usr/local/lib
+Environment=V4L2_DEVICE=/dev/video0
+
+[Install]
+WantedBy=multi-user.target

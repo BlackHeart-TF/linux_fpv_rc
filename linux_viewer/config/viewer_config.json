@@ -1,0 +1,61 @@
+{
+  "network": {
+    "video_receive_port": 5000,
+    "command_send_ip": "127.0.0.1",
+    "command_send_port": 5001,
+    "receive_buffer_size": 1048576,
+    "heartbeat_interval_ms": 1000
+  },
+  "decoder": {
+    "enable_hardware_acceleration": true,
+    "max_frame_queue_size": 10,
+    "decoder_threads": 2
+  },
+  "display": {
+    "window_width": 640,
+    "window_height": 480,
+    "fullscreen": false,
+    "vsync": true,
+    "show_stats": true
+  },
+  "gamepad": {
+    "device_index": 0,
+    "deadzone": 0.1,
+    "servo_mappings": [
+      {
+        "servo_id": 0,
+        "axis": 0,
+        "invert": false,
+        "min_value": 1000,
+        "max_value": 2000
+      },
+      {
+        "servo_id": 1,
+        "axis": 1,
+        "invert": true,
+        "min_value": 1000,
+        "max_value": 2000
+      }
+    ],
+    "button_mappings": [
+      {
+        "button": 0,
+        "action": "center_servos"
+      },
+      {
+        "button": 1,
+        "action": "force_iframe"
+      }
+    ]
+  },
+  "logging": {
+    "log_level": "INFO",
+    "log_file": "/tmp/linux_viewer.log",
+    "enable_console_output": true
+  },
+  "performance": {
+    "enable_monitoring": true,
+    "stats_update_interval_ms": 1000,
+    "max_latency_ms": 100
+  }
+}

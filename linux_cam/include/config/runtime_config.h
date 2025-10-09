@@ -54,10 +54,8 @@ public:
     bool validate_config() const;
     std::string get_validation_errors() const;
     
-    // Default configurations
-    static ApplicationConfig create_default_config();
-    static ApplicationConfig create_high_performance_config();
-    static ApplicationConfig create_low_latency_config();
+    // Initialize with sensible defaults
+    void initialize_defaults();
 
 private:
     RuntimeConfig() = default;

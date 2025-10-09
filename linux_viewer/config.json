@@ -1,0 +1,24 @@
+{
+  "receiver": {
+    "listen_port": 5000,
+    "max_frame_size": 65536,
+    "timeout_ms": 1000
+  },
+  "sender": {
+    "target_ip": "127.0.0.1",
+    "target_port": 5001
+  },
+  "decoder": {
+    "output_format": "AV_PIX_FMT_YUV420P",
+    "enable_hardware_acceleration": false
+  },
+  "display": {
+    "width": 640,
+    "height": 480,
+    "fullscreen": false
+  },
+  "gamepad": {
+    "deadzone": 0.1,
+    "max_value": 1.0
+  }
+}

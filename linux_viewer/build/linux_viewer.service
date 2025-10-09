@@ -1,0 +1,30 @@
+[Unit]
+Description=Linux FPV Viewer
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=
+Group=
+ExecStart=/usr/local/bin/linux_viewer --config /etc/linux_viewer/viewer_config.json
+Restart=always
+RestartSec=5
+
+# Environment
+Environment=DISPLAY=:0
+Environment=SDL_VIDEODRIVER=x11
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/tmp /var/log
+
+# Resource limits
+LimitNOFILE=1024
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target

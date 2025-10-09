@@ -1,0 +1,7 @@
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/linux_cam.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/edit_cache.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/rebuild_cache.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/list_install_components.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/install.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/install/local.dir
+/home/blackheart/Documents/source/linux_fpv_rc/linux_cam/build/CMakeFiles/install/strip.dir
